@@ -16,7 +16,8 @@ namespace dtp8_MUD_0 //ARIS
         public const int NoDoor = -1;
 
         // Object attributes:
-        public int number, key;
+        public int number ; //Unikt rumsnummer
+        public int key; //Nyckel som ev. ligger i rummet
         public string roomname = "";
         public string story = "";
         public string imageFile = "";
@@ -46,20 +47,22 @@ namespace dtp8_MUD_0 //ARIS
     class Door
     {
         // Object attributes:
-        public Room[] rooms = new Room[2]; 
-        public bool open;
+        public int[] rooms = new int[2]; //Array som innehåller unikt rumsnummer(från klass ROOM), anger mellan vilka rum dörren går
+        public bool open; //true = dörren är öppen
     }
+
+
 
     class KeyDoor
     {
-        public Room[] rooms = new Room[2];
+        public int[] rooms = new int[2]; ////Array som innehåller unikt rumsnummer(från klass ROOM), anger mellan vilka rum dörren går
     }
 
     class Player
     {
-        public string name;
-        public Room room;
-        public List<KeyDoor> keys;
+        public string name; //Spelarens namn
+        public int room;   //rumsnummer där spelaren befinner sig
+        public List<KeyDoor> keys; //lista av nycklar som spelaren har hittat
     }
 
 }

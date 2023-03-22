@@ -30,7 +30,7 @@ namespace dtp8_MUD_0
 
             // Init Rooms here:
             Room R;
-            R = new Room(0, "Startrummet");
+            R = new Room(0, "startrummet");
             R.SetStory("Du står i ett rum med rött tegel. Väggarna fladdrar i facklornas sken. Du ser en hög med tyg nere till vänster. ");
             R.SetImage("ingang-stangd.png");
             R.SetDirections(N: 1, E: Room.NoDoor, S: Room.NoDoor, W: Room.NoDoor);
@@ -54,7 +54,7 @@ namespace dtp8_MUD_0
             // output += AppDomain.CurrentDomain.BaseDirectory;
             KeyPressDisplay.Text = output;
 
-            if(e.Key == Key.Escape)
+            if(e.Key == Key.Escape || e.Key == Key.Q || e.Key == Key.X)
             {
                 System.Windows.Application.Current.Shutdown();
             }
@@ -63,6 +63,12 @@ namespace dtp8_MUD_0
                 currentRoom = labyrinth[currentRoom].GetNorth();
                 DisplayCurrentRoom();
             }
+            else if (e.Key == Key.Down)
+            {
+                currentRoom = labyrinth[currentRoom].GetSouth();
+                DisplayCurrentRoom();
+            }
+
         }
         private void DisplayCurrentRoom()
         {
