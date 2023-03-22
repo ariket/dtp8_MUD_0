@@ -16,7 +16,7 @@ namespace dtp8_MUD_0 //ARIS
         public const int NoDoor = -1;
 
         // Object attributes:
-        public int number;
+        public int number, key;
         public string roomname = "";
         public string story = "";
         public string imageFile = "";
@@ -43,7 +43,23 @@ namespace dtp8_MUD_0 //ARIS
         public int GetWest() => adjacent[West];
     }
 
+    class Door
+    {
+        // Object attributes:
+        public Room[] rooms = new Room[2]; 
+        public bool open;
+    }
 
+    class KeyDoor
+    {
+        public Room[] rooms = new Room[2];
+    }
 
+    class Player
+    {
+        public string name;
+        public Room room;
+        public List<KeyDoor> keys;
+    }
 
 }
