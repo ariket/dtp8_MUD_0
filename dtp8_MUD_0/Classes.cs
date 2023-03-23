@@ -16,7 +16,7 @@ namespace dtp8_MUD_0 //ARIS
         public const int NoDoor = -1;
 
         // Object attributes:
-        public int number ; //Unikt rumsnummer
+        public int number; //Unikt rumsnummer
         public int key; //Nyckel som ev. ligger i rummet
         public string roomname = "";
         public string story = "";

@@ -18,6 +18,6 @@
         <TextBlock x:Name="KeyAlt5" Text="s        sök" FontSize="16" Margin="330,350,30,20" VerticalAlignment="Top" TextWrapping="Wrap" FontFamily="Lucida Console"/>
         <TextBlock x:Name="KeyAlt6" Text="n        lås upp" FontSize="16" Margin="330,370,30,20" VerticalAlignment="Top" TextWrapping="Wrap" FontFamily="Lucida Console"/>
         <TextBlock x:Name="KeyAlt7" Text="escape   avsluta" FontSize="16" Margin="330,390,30,20" VerticalAlignment="Top" TextWrapping="Wrap" FontFamily="Lucida Console"/>
-        <Image x:Name="RoomImage" HorizontalAlignment="Left" Height="230" Margin="310,10,0,0" VerticalAlignment="Top" Width="230"/>
+        <Image x:Name="RoomImage" HorizontalAlignment="Left" Height="230" Margin="310,10,0,0" VerticalAlignment="Top" Width="230" />
     </Grid>
 </Window>

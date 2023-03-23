@@ -41,6 +41,12 @@ namespace dtp8_MUD_0
             R.SetImage("vagskal.png");
             R.SetDirections(N: 2, E: 3, S: 0, W: 4);
             labyrinth[1] = R;
+            
+            R = new Room(1, "Korsvägen2");
+            R.SetStory("Du står i korsväg. Det går gångar i alla riktningar. ");
+            R.SetImage("a.png");
+            R.SetDirections(N: Room.NoDoor, E: Room.NoDoor, S: 1, W: Room.NoDoor); 
+            labyrinth[2] = R;
 
             currentRoom = 0;
             DisplayCurrentRoom();
@@ -58,27 +64,38 @@ namespace dtp8_MUD_0
             {
                 System.Windows.Application.Current.Shutdown();
             }
-            else if(e.Key == Key.Up)
+            else if(e.Key == Key.Up && labyrinth[currentRoom].GetNorth() != Room.NoDoor)
             {
                 currentRoom = labyrinth[currentRoom].GetNorth();
                 DisplayCurrentRoom();
             }
-            else if (e.Key == Key.Down)
+            else if (e.Key == Key.Down && labyrinth[currentRoom].GetSouth() != Room.NoDoor)
             {
                 currentRoom = labyrinth[currentRoom].GetSouth();
                 DisplayCurrentRoom();
             }
-
+            else if (e.Key == Key.Left && labyrinth[currentRoom].GetWest() != Room.NoDoor)
+            {
+                currentRoom = labyrinth[currentRoom].GetWest();
+                DisplayCurrentRoom();
+            }
+            else if (e.Key == Key.Right && labyrinth[currentRoom].GetEast() != Room.NoDoor)
+            {
+                currentRoom = labyrinth[currentRoom].GetEast();
+                DisplayCurrentRoom();
+            }
         }
         private void DisplayCurrentRoom()
         {
-            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            //string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            string baseDir = "C:\\Temp\\MJU_bilder\\";
             Room R = labyrinth[currentRoom];
-            string bitmapFileName = $"{baseDir}/{R.imageFile}";
-            if (File.Exists(bitmapFileName))
-            {
-                Uri uri = new Uri(bitmapFileName, UriKind.RelativeOrAbsolute);
-                RoomImage.Source = BitmapFrame.Create(uri);
+            string bitmapFileName = baseDir + R.imageFile;
+          
+           if (File.Exists(bitmapFileName))
+           {
+               Uri uri = new Uri(bitmapFileName, UriKind.RelativeOrAbsolute);
+               RoomImage.Source = BitmapFrame.Create(uri);
             }
             string text = $"Du befinner dig i {R.roomname}. ";
             text += R.story+" ";
@@ -87,6 +104,7 @@ namespace dtp8_MUD_0
             if (R.GetSouth() != Room.NoDoor) text += "Det finns en gång söderut. ";
             if (R.GetWest() != Room.NoDoor) text += "Det finns en gång västerut. ";
             RoomText.Text = text;
+            
 
             /* Andra texter som man kan sätta:
              * KeyAlt1.Text = "upp      gå norrut"; 
