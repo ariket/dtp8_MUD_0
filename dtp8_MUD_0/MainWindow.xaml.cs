@@ -28,7 +28,7 @@ namespace dtp8_MUD_0
         {
             InitializeComponent();
 
-            // Init Rooms here:
+            // Init Rooms here: TODO: ladda rummen från en fil
             Room R;
             R = new Room(0, "startrummet");
             R.SetStory("Du står i ett rum med rött tegel. Väggarna fladdrar i facklornas sken. Du ser en hög med tyg nere till vänster. ");
@@ -82,6 +82,16 @@ namespace dtp8_MUD_0
             else if (e.Key == Key.Right && labyrinth[currentRoom].GetEast() != Room.NoDoor)
             {
                 currentRoom = labyrinth[currentRoom].GetEast();
+                DisplayCurrentRoom();
+            }
+            else if (e.Key == Key.S )
+            {
+             
+                DisplayCurrentRoom();
+            }
+            else if (e.Key == Key.N )
+            {
+               
                 DisplayCurrentRoom();
             }
         }

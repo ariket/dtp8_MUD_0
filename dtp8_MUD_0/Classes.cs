@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace dtp8_MUD_0 //ARIS
 {
-    class Room
+    class Room /test
     {
         // Constants:
         public const int North = 0;
